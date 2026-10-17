@@ -43,6 +43,9 @@ do {
   if("$boot".Trim() -eq '1'){break}
   Start-Sleep -Seconds 2
 }while([DateTime]::UtcNow -lt $deadline)
+$originalFont=(Emu @('shell','settings','get','system','font_scale') | Out-String).Trim()
+try {
+Emu @('shell','settings','put','system','font_scale','1.0') | Out-Null
 Emu @('install','-r',$ApkPath) | Out-Null
 Emu @('shell','am','force-stop','de.leterel.adscroll') | Out-Null
 Emu @('shell','am','start','-W','-n','de.leterel.adscroll/.MainActivity') | Out-Null
@@ -78,3 +81,6 @@ Emu @('shell','screencap','-p','/sdcard/adscroll-smoke.png') | Out-Null
 Emu @('pull','/sdcard/adscroll-smoke.png',(Join-Path $OutputDirectory 'feed.png')) | Out-Null
 [ordered]@{passed=$true;emulator=$Serial;apkSha256=(Get-FileHash -LiteralPath $ApkPath).Hash;checks=@('start','fictional disclosure','8 forward swipes with recycled creatives','bounded UI tree','backward swipe','rotation preserves position','background/resume preserves position');realAds=$false} | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath (Join-Path $OutputDirectory 'result.json')
 Write-Output 'PASS: AdScroll emulator gesture, lifecycle and disclosure checks.'
+} finally {
+  if($originalFont -match '^\d+(\.\d+)?$'){Emu @('shell','settings','put','system','font_scale',$originalFont) | Out-Null}
+}

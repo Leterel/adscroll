@@ -26,10 +26,12 @@ public final class MainActivity extends Activity {
         setContentView(pager); pager.requestApplyInsets(); pager.show();
     }
     @Override protected void onSaveInstanceState(Bundle state) { state.putLong("position", position); super.onSaveInstanceState(state); }
-    @Override public boolean onKeyDown(int code, KeyEvent event) {
-        if (code == KeyEvent.KEYCODE_DPAD_DOWN || code == KeyEvent.KEYCODE_PAGE_DOWN) { pager.move(true); return true; }
-        if (code == KeyEvent.KEYCODE_DPAD_UP || code == KeyEvent.KEYCODE_PAGE_UP) { pager.move(false); return true; }
-        return super.onKeyDown(code, event);
+    @Override public boolean dispatchKeyEvent(KeyEvent event) {
+        int code = event.getKeyCode();
+        boolean forward = code == KeyEvent.KEYCODE_DPAD_DOWN || code == KeyEvent.KEYCODE_PAGE_DOWN;
+        boolean backward = code == KeyEvent.KEYCODE_DPAD_UP || code == KeyEvent.KEYCODE_PAGE_UP;
+        if (forward || backward) { if (event.getAction() == KeyEvent.ACTION_DOWN) pager.move(forward); return true; }
+        return super.dispatchKeyEvent(event);
     }
     private int dp(int n) { return Math.round(n * getResources().getDisplayMetrics().density); }
     private TextView text(String value, int size, int color) {
@@ -39,6 +41,7 @@ public final class MainActivity extends Activity {
     private final class Pager extends LinearLayout {
         private final GestureDetector gestures;
         private ScrollView cardScroll;
+        private boolean couldScrollDown, couldScrollUp;
         Pager() {
             super(MainActivity.this); setOrientation(VERTICAL); setBackgroundColor(Color.rgb(17,19,18));
             setFocusable(true); setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_YES);
@@ -46,12 +49,16 @@ public final class MainActivity extends Activity {
                 @Override public boolean onDown(MotionEvent event) { return false; }
                 @Override public boolean onFling(MotionEvent from, MotionEvent to, float vx, float vy) {
                     if (from == null || to == null || Math.abs(to.getY()-from.getY()) < dp(48) || Math.abs(vy) < 150 || Math.abs(vy) <= Math.abs(vx)) return false;
-                    if (cardScroll != null && cardScroll.canScrollVertically(to.getY() < from.getY() ? 1 : -1)) return false;
+                    if (to.getY() < from.getY() ? couldScrollDown : couldScrollUp) return false;
                     move(to.getY() < from.getY()); return true;
                 }
             });
         }
         @Override public boolean dispatchTouchEvent(MotionEvent event) {
+            if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
+                couldScrollDown = cardScroll != null && cardScroll.canScrollVertically(1);
+                couldScrollUp = cardScroll != null && cardScroll.canScrollVertically(-1);
+            }
             boolean swipe = gestures.onTouchEvent(event);
             return super.dispatchTouchEvent(event) || swipe;
         }
