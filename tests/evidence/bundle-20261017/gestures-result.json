@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "emulator": "emulator-5570",
+  "inputSha256": "CFFBBFD5A4238C385DCBECED691FCD30C89F6572BCAA9831E82E2E0989F7261F",
+  "alreadyInstalled": true,
+  "checks": [
+    "start",
+    "fictional disclosure",
+    "8 forward swipes with recycled creatives",
+    "bounded UI tree",
+    "backward swipe",
+    "rotation preserves position",
+    "background/resume preserves position"
+  ],
+  "realAds": false
+}

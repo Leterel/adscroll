@@ -1,0 +1,18 @@
+{
+  "bundle": "app-release-unsigned.aab",
+  "bundleSha256": "3017C25076CEFFCF15FD01D72E884E0F4EAA9AFFA7A96C1F725ADA6DEDAF5024",
+  "bundletoolVersion": "1.18.3",
+  "bundletoolSha256": "A099CFA1543F55593BC2ED16A70A7C67FE54B1747BB7301F37FDFD6D91028E29",
+  "validated": true,
+  "apkSetBuilt": true,
+  "apkSetSha256": "CFFBBFD5A4238C385DCBECED691FCD30C89F6572BCAA9831E82E2E0989F7261F",
+  "package": "de.leterel.adscroll",
+  "localTestSignature": true,
+  "productionSigningTested": false,
+  "emulator": "emulator-5570",
+  "installed": true,
+  "launched": true,
+  "uiTextMatched": true,
+  "expectedTextPattern": "PAUSENKAFFEE",
+  "apiLevel": "34"
+}

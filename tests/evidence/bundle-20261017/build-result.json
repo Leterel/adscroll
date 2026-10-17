@@ -1,0 +1,10 @@
+{
+  "package": "de.leterel.adscroll",
+  "unsigned": true,
+  "bundletoolValidated": true,
+  "bundleSha256": "3017C25076CEFFCF15FD01D72E884E0F4EAA9AFFA7A96C1F725ADA6DEDAF5024",
+  "bundletoolSha256": "A099CFA1543F55593BC2ED16A70A7C67FE54B1747BB7301F37FDFD6D91028E29",
+  "offline": true,
+  "productionSigningTested": false,
+  "storeReady": false
+}

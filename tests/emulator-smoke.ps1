@@ -2,7 +2,8 @@ param(
   [Parameter(Mandatory=$true)][string]$AdbPath,
   [Parameter(Mandatory=$true)][string]$ApkPath,
   [Parameter(Mandatory=$true)][string]$OutputDirectory,
-  [ValidatePattern('^emulator-[0-9]+$')][string]$Serial='emulator-5570'
+  [ValidatePattern('^emulator-[0-9]+$')][string]$Serial='emulator-5570',
+  [switch]$AlreadyInstalled
 )
 $ErrorActionPreference='Stop'
 $AdbPath=(Resolve-Path -LiteralPath $AdbPath).Path
@@ -46,7 +47,7 @@ do {
 $originalFont=(Emu @('shell','settings','get','system','font_scale') | Out-String).Trim()
 try {
 Emu @('shell','settings','put','system','font_scale','1.0') | Out-Null
-Emu @('install','-r',$ApkPath) | Out-Null
+if(!$AlreadyInstalled){Emu @('install','-r',$ApkPath) | Out-Null}
 Emu @('shell','am','force-stop','de.leterel.adscroll') | Out-Null
 Emu @('shell','am','start','-W','-n','de.leterel.adscroll/.MainActivity') | Out-Null
 $first=Expect '01-first' 'PAUSENKAFFEE'
@@ -79,7 +80,7 @@ try {
 if($rotation -match '^[0-3]$'){Wait-Rotation ([int]$rotation) 'restored-rotation'}
 Emu @('shell','screencap','-p','/sdcard/adscroll-smoke.png') | Out-Null
 Emu @('pull','/sdcard/adscroll-smoke.png',(Join-Path $OutputDirectory 'feed.png')) | Out-Null
-[ordered]@{passed=$true;emulator=$Serial;apkSha256=(Get-FileHash -LiteralPath $ApkPath).Hash;checks=@('start','fictional disclosure','8 forward swipes with recycled creatives','bounded UI tree','backward swipe','rotation preserves position','background/resume preserves position');realAds=$false} | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath (Join-Path $OutputDirectory 'result.json')
+[ordered]@{passed=$true;emulator=$Serial;inputSha256=(Get-FileHash -LiteralPath $ApkPath).Hash;alreadyInstalled=[bool]$AlreadyInstalled;checks=@('start','fictional disclosure','8 forward swipes with recycled creatives','bounded UI tree','backward swipe','rotation preserves position','background/resume preserves position');realAds=$false} | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath (Join-Path $OutputDirectory 'result.json')
 Write-Output 'PASS: AdScroll emulator gesture, lifecycle and disclosure checks.'
 } finally {
   if($originalFont -match '^\d+(\.\d+)?$'){Emu @('shell','settings','put','system','font_scale',$originalFont) | Out-Null}

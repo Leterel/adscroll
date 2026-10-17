@@ -1,0 +1,25 @@
+--------- beginning of main
+10-17 04:40:32.985  5224  5224 I eterel.adscroll: Using CollectorTypeCC GC.
+10-17 04:40:32.987  5224  5224 W eterel.adscroll: Unexpected CPU variant for x86: x86_64.
+10-17 04:40:32.987  5224  5224 W eterel.adscroll: Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, tremont, kabylake, default
+10-17 04:40:32.993  5224  5224 E eterel.adscroll: Not starting debugger since process cannot load the jdwp agent.
+10-17 04:40:33.010  5224  5224 D CompatibilityChangeReporter: Compat change id reported: 171979766; UID 10144; state: ENABLED
+10-17 04:40:33.011  5224  5224 D CompatibilityChangeReporter: Compat change id reported: 242716250; UID 10144; state: ENABLED
+10-17 04:40:33.021  5224  5224 I eterel.adscroll: Failed to add image file: Failed to find OatDexFile for DexFile /data/app/~~uU6FO9Op4I9px9jYNt5wNA==/de.leterel.adscroll-LqdPXuYlVSP6CwQLQoHdpA==/base.apk (canonical path /data/app/~~uU6FO9Op4I9px9jYNt5wNA==/de.leterel.adscroll-LqdPXuYlVSP6CwQLQoHdpA==/base.apk) in OatFile /data/app/~~-Ozh-oPf0YhvFganTtNdUA==/de.leterel.adscroll-uiFfliGUiYaS_6zLZiwYaw==/oat/x86_64/base.odex
+10-17 04:40:33.022  5224  5224 D nativeloader: Configuring clns-6 for other apk /data/app/~~-Ozh-oPf0YhvFganTtNdUA==/de.leterel.adscroll-uiFfliGUiYaS_6zLZiwYaw==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~-Ozh-oPf0YhvFganTtNdUA==/de.leterel.adscroll-uiFfliGUiYaS_6zLZiwYaw==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/de.leterel.adscroll
+10-17 04:40:33.027  5224  5224 V GraphicsEnvironment: Currently set values for:
+10-17 04:40:33.028  5224  5224 V GraphicsEnvironment:   angle_gl_driver_selection_pkgs=[]
+10-17 04:40:33.028  5224  5224 V GraphicsEnvironment:   angle_gl_driver_selection_values=[]
+10-17 04:40:33.028  5224  5224 V GraphicsEnvironment: ANGLE GameManagerService for de.leterel.adscroll: false
+10-17 04:40:33.028  5224  5224 V GraphicsEnvironment: de.leterel.adscroll is not listed in per-application setting
+10-17 04:40:33.029  5224  5224 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+10-17 04:40:33.065  5224  5244 D libEGL  : loaded /vendor/lib64/egl/libEGL_emulation.so
+10-17 04:40:33.070  5224  5244 D libEGL  : loaded /vendor/lib64/egl/libGLESv1_CM_emulation.so
+10-17 04:40:33.072  5224  5244 D libEGL  : loaded /vendor/lib64/egl/libGLESv2_emulation.so
+10-17 04:40:33.079  5224  5224 D CompatibilityChangeReporter: Compat change id reported: 210923482; UID 10144; state: ENABLED
+10-17 04:40:33.080  5224  5224 D CompatibilityChangeReporter: Compat change id reported: 171228096; UID 10144; state: ENABLED
+10-17 04:40:33.091  5224  5224 D CompatibilityChangeReporter: Compat change id reported: 237531167; UID 10144; state: DISABLED
+10-17 04:40:33.093  5224  5224 W OpenGLRenderer: Unknown dataspace 0
+10-17 04:40:33.121  5224  5242 W OpenGLRenderer: Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-17 04:40:33.138  5224  5242 I Gralloc4: mapper 4.x is not supported
+10-17 04:40:34.721  5224  5242 D EGL_emulation: app_time_stats: avg=119.36ms min=2.71ms max=1068.09ms count=10
