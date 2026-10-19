@@ -21,7 +21,7 @@ Netzwerkverbindung, Berechtigungen oder Einnahmen. Wischen nach oben/unten,
 Tastatur und Accessibility-Scrollaktionen wechseln Karten. Rotation und
 Hintergrund behalten die aktuelle Position. Der Feed baut keine wachsende Liste auf.
 
-Privates Repository: https://github.com/Leterel/adscroll.
+Öffentliches Repository: https://github.com/Leterel/adscroll.
 Android 8+, APK `adscroll-0.1.0.apk`, lokale Entwicklungssignatur.
 
 ## Bauen und testen
