@@ -35,3 +35,11 @@ Output-Ordnern. Kein produktiver Signierschlüssel und kein physisches Gerät be
 
 Noch offen: echte Werbeanbindung/Anbieter, produktive Werbemotive, produktive
 Signierung und Store-Prüfung, weitere Android-Versionen und Accessibility-Tests.
+
+## 19.10.2026 — Einfacher Ersttest
+
+ERSTTEST.md ergänzt: Offline-Demo starten, Katalogumlauf, Rückwärtswischen,
+Rotation, Fortsetzen und große Schrift. APK-SHA256 erneut mit dem dokumentierten
+E1ACB5AD58B36937283949E6E1CD86A6417A08CC2C383411DE3B0F1803F3A3C5 abgeglichen.
+Vorhandene Bundle-/QEMU-Belege gelesen; kein neuer Emulatorlauf und kein neuer Build.
+Keine Anbieterentscheidung oder echte Werbung implementiert.

@@ -1,5 +1,7 @@
 # AdScroll
 
+Erster eigener Test: [Kurzanleitung](ERSTTEST.md).
+
 Sechstes Projekt in dieser Projektzentrale, aufgenommen am 17.10.2026.
 
 Eine App, deren einziger Zweck es ist, unendlich durch Werbung zu scrollen.
