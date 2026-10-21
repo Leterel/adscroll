@@ -3,6 +3,10 @@ package de.leterel.adscroll;
 /** Original fictional demo creatives, not paid impressions or advertiser data. */
 public final class Catalog {
     private Catalog() {}
+    public static final String APP_LABEL = "adscroll.     DEMO";
+    public static final String DISCLOSURE = "FIKTIVE WERBUNG · KEINE ECHTE ANZEIGE";
+    public static final String POSITION_LABEL = "DEMO / ";
+    public static final String ANNOUNCEMENT_PREFIX = "Demo-Anzeige ";
     public static final String[][] ADS = {
         {"PAUSENKAFFEE", "Dein Montag.\nNur besser.", "Ein Schluck Pause. Eine rein erfundene Kaffeemarke.", "#D8FF70", "#183622", "01"},
         {"WOLKENWERK", "Weniger müssen.\nMehr liegen.", "Das Kissen für große Pläne im Liegen. Fiktive Werbung.", "#E1D8FF", "#34244C", "02"},

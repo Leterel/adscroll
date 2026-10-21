@@ -64,20 +64,20 @@ public final class MainActivity extends Activity {
         }
         void move(boolean forward) {
             position = forward ? Catalog.next(position) : Catalog.previous(position); show();
-            announceForAccessibility("Demo-Anzeige " + (position + 1));
+            announceForAccessibility(Catalog.ANNOUNCEMENT_PREFIX + (position + 1));
         }
         void show() {
             removeAllViews();
-            TextView brand = text("adscroll.     DEMO", 22, Color.WHITE); brand.setPadding(dp(24),dp(12),dp(24),dp(12)); addView(brand);
+            TextView brand = text(Catalog.APP_LABEL, 22, Color.WHITE); brand.setPadding(dp(24),dp(12),dp(24),dp(12)); addView(brand);
             String[] ad = Catalog.ADS[Catalog.index(position)]; int ink = Color.parseColor(ad[4]);
             ScrollView scroll = new ScrollView(MainActivity.this); scroll.setFillViewport(true); cardScroll = scroll;
             LinearLayout card = new LinearLayout(MainActivity.this); card.setOrientation(VERTICAL); card.setPadding(dp(28),dp(20),dp(28),dp(24)); card.setBackgroundColor(Color.parseColor(ad[3]));
-            card.addView(text("FIKTIVE WERBUNG · KEINE ECHTE ANZEIGE", 11, ink));
+            card.addView(text(Catalog.DISCLOSURE, 11, ink));
             card.addView(text(ad[0], 17, ink));
             TextView mark = text("✳", 100, ink); mark.setGravity(android.view.Gravity.CENTER); mark.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
             card.addView(mark, new LinearLayout.LayoutParams(-1,0,1));
             card.addView(text(ad[1], 38, ink)); card.addView(text(ad[2], 16, ink));
-            card.addView(text("DEMO / " + (position + 1) + "    ↑ Wischen für die nächste Anzeige", 12, ink));
+            card.addView(text(Catalog.POSITION_LABEL + (position + 1) + "    ↑ Wischen für die nächste Anzeige", 12, ink));
             scroll.addView(card, new ScrollView.LayoutParams(-1,-1));
             addView(scroll, new LinearLayout.LayoutParams(-1,0,1));
         }

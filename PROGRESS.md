@@ -43,3 +43,39 @@ Rotation, Fortsetzen und große Schrift. APK-SHA256 erneut mit dem dokumentierte
 E1ACB5AD58B36937283949E6E1CD86A6417A08CC2C383411DE3B0F1803F3A3C5 abgeglichen.
 Vorhandene Bundle-/QEMU-Belege gelesen; kein neuer Emulatorlauf und kein neuer Build.
 Keine Anbieterentscheidung oder echte Werbung implementiert.
+
+## 20.10.2026 — Android-Werkzeugkette und Upload-Signierung
+
+Gradle 8.11.1 (offizielle SHA-256 im Wrapper) und AGP 8.10.1 eingesetzt;
+unsigned AAB neu gebaut und mit bundletool 1.18.3 validiert. AGP unterstützt
+API 36; die frühere Warnung durch AGP 8.7.3 entfällt. Bestehende APKs erhalten.
+Separates tools/sign-bundle.mjs mit echter jarsigner- und Zertifikatsprüfung
+ergänzt; alle drei Signierregressionen mit echtem AAB und isoliertem temporärem
+RSA-3072-Testschlüssel bestanden. Debugalias, bereits signierter Input, ungültiges
+Bundle und vorhandene Ausgabe werden abgewiesen. Keine Produktionsschlüssel
+erzeugt oder übertragen, kein Play-Upload. Anleitung: SIGNING.md.
+# 21.10.2026 — Direkten Sponsor-Katalog technisch vorbereiten
+
+Lokaler JSON-zu-Java-Generator mit striktem Schema, 1–48 Karten, Text-/Zeilen-
+und Dateigrenzen, Farb-/Kontrastprüfung und sicherem Java-Escaping. Keine URLs,
+HTML, Skripte oder Trackingfelder. Standardausgabe ist deutlich unbezahlte Demo.
+Sponsorquelltext setzt ausdrückliche Rechte-/Vertragsbestätigung voraus.
+
+Der manuelle APK-Build akzeptiert optional `-SponsorCatalog` zusammen mit
+`-ConfirmSponsorRightsAndContract`, validiert die ursprüngliche JSON-Datei und
+kompiliert einen separaten generierten Katalog. Demoquellen bleiben erhalten.
+Sponsor-Paket `de.leterel.adscroll.sponsors`, separate APK und sichtbare
+Werbungskennzeichnung. Keine neuen Appbuttons oder Feedinhalte neben Werbung.
+Gradle/AAB bleibt Demo. SPONSORS.md beschreibt die konkrete spätere Verwendung.
+
+Vier Node-Tests bestanden, darunter echte Java-8-Zielkompilation und Laufzeit-
+Roundtrip von Anführungszeichen, Backslash, Unicode und Zeilenumbruch. Schema,
+fehlende Vertragsbestätigung, Überschreibschutz und Größenlimit geprüft.
+PowerShell-Buildskript syntaktisch geprüft; Abbruch ohne Vertragsbestätigung
+vor allen Buildaktionen bestätigt. Native APK-/Emulatorprüfung erfolgt separat.
+Kein Sponsorvertrag oder freigegebenes Motiv liegt vor; keine echte Kampagne,
+kein AdMob und keine Einnahmen behauptet.
+
+
+Native Demo-APK am 21.10. gebaut; apksigner v2/v3 und zipalign bestanden. SHA256: 54E64AD74B9FBCB84F8A44C587196A9EA04196DFE0F85C8A2180EACC89CFB191. Java-8-Ziel/API-Deprecation-Warnungen bleiben sichtbar. Sandbox-JAR-Tempfehler durch autorisierten Build außerhalb behoben. Kein Sponsor-APK gebaut.
+

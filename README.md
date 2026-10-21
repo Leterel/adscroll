@@ -41,6 +41,11 @@ Der Runner prüft vor jeder Geräteaktion QEMU und verwendet kein echtes Handy.
 
 ## Echte Werbung noch offen
 
+Der lokale [Sponsor-Katalog-Workflow](SPONSORS.md) ist technisch vorbereitet:
+validierte Textkarten, separate Sponsor-APK und ausdrückliche Rechte-/Vertragsbestätigung.
+Die normale Demo bleibt fiktiv und unverändert gekennzeichnet. Reale Sponsoren,
+freigegebene Motive und Vereinbarungen sind weiterhin erforderlich.
+
 Die Demo bildet nur das Bedienkonzept ab. Googles Anzeigenrichtlinie untersagt
 Google-Anzeigen auf Flächen ohne eigene Publisher-Inhalte:
 https://support.google.com/publisherpolicies/answer/11112688?hl=en
@@ -60,10 +65,7 @@ keinen produktiven Signierschlüssel. Beispiel mit bereits gefülltem Gradle-Cac
 ```
 
 Standardmäßig wird offline gebaut; `-Online` erlaubt den Download fehlender
-Abhängigkeiten. Gradle 8.9 und Android Gradle Plugin 8.7.3 sind festgelegt.
-AGP 8.7.3 war bis compileSdk 35 getestet und warnt deshalb bei SDK 36; diese
-Warnung wird nicht unterdrückt. Vor einem Store-Release ist ein Upgrade mit
-erneuter Prüfung erforderlich. Der Build nutzt das aapt2 aus dem angegebenen SDK.
+Abhängigkeiten. Gradle 8.11.1 und Android Gradle Plugin 8.10.1 sind festgelegt. Diese AGP-Version unterstützt API 36. Die Gradle-Distribution ist per SHA-256 abgesichert. Der Build nutzt das aapt2 aus dem angegebenen SDK.
 
 `tests/test-app-bundle.ps1` validiert mit bundletool und erzeugt ausschließlich
 lokal testsignierte APKs. Eine Emulatorprüfung benötigt eine explizite Seriennummer
