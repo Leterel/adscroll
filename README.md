@@ -2,6 +2,10 @@
 
 Erster eigener Test: [Kurzanleitung](ERSTTEST.md).
 
+[Aktuelle Offline-Demo und Quellen herunterladen](https://github.com/Leterel/adscroll/releases/tag/v0.1.0-build.20261025).
+Datierter Vorab-Build bei unverändertem APK-Versionsnamen 0.1.0; ältere Downloads
+bleiben erhalten. Keine echten Anzeigen oder Einnahmen in der Demo.
+
 Sechstes Projekt in dieser Projektzentrale, aufgenommen am 17.10.2026.
 
 Eine App, deren einziger Zweck es ist, unendlich durch Werbung zu scrollen.
